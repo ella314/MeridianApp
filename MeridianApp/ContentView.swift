@@ -1,21 +1,38 @@
-//
-//  ContentView.swift
-//  MeridianApp
-//
-//  Created by Scholar on 7/29/25.
-//
+import SwiftUI
 
-//import SwiftUI
+struct HomeView: View {
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Home")
+                .font(.largeTitle)
+                .fontWeight(.bold)
 
-//struct ContentView: View {
-    //   VStack {
-            //Text("Ella is not sigma, but Dhriti is")
-            //Text("change")
-        //}
-        //.padding()
-   // }
-//}
+            RoundedRectangle(cornerRadius: 25)
+                .fill(Color(.systemRed).opacity(0.7))
+                .frame(height: 100)
+                .overlay(
+                    Text("quote")
+                        .font(.title)
+                        .foregroundColor(.black)
+                )
 
-//#Preview {
-    //ContentView()
-//}
+            RoundedRectangle(cornerRadius: 25)
+                .fill(Color(.systemRed).opacity(0.7))
+                .frame(height: 300)
+                .overlay(
+                    Text("Reminders")
+                        .font(.title)
+                        .foregroundColor(.black)
+                )
+
+            Spacer()
+        }
+        .padding()
+        .background(Color(.lightGray))
+    }
+}
+
+#Preview {
+    HomeView()
+}
+
