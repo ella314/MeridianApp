@@ -18,4 +18,3 @@ class ToDoItem {
         self.isImportant = isImportant
     }
 }
-

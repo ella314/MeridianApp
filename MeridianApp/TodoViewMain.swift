@@ -15,7 +15,7 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
+struct TodoViewMainView: View {
     @State private var showNewTask = false
     @Query var toDos: [ToDoItem]
     @Environment(\.modelContext) var modelContext
@@ -65,6 +65,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    TodoViewMainView()
         .modelContainer(for: ToDoItem.self, inMemory: true)
 }
