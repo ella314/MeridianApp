@@ -21,36 +21,41 @@ struct TodoViewMainView: View {
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
-        VStack {
-            HStack{
-                Text("To Do List")
-                    .font(.system(size: 40))
-                         .fontWeight(.black)
-                Spacer()
-                Button {
-                    withAnimation {
-                        showNewTask = true
-                    }
-                } label: {
-                    Text("+")
-                        .font(.title)
-                        .fontWeight(.bold)
-                }
-            }
-            .padding()
-            Spacer()
-            List {
-                    ForEach (toDos) { toDoItem in
-                        if toDoItem.isImportant {
-                            Text("‼️" + toDoItem.title)
-                        } else {
-                            Text(toDoItem.title)
+        ZStack {
+            VStack {
+                HStack{
+                    Text("To Do List")
+                        .font(.system(size: 40))
+                             .fontWeight(.black)
+                             .foregroundStyle(Color.white)
+                    Spacer()
+                    Button {
+                        withAnimation {
+                            showNewTask = true
                         }
+                    } label: {
+                        Text("+")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundStyle(Color.white)
                     }
-                    .onDelete(perform: deleteToDo)
+                }
+                .padding()
+                Spacer()
+                List {
+                        ForEach (toDos) { toDoItem in
+                            if toDoItem.isImportant {
+                                Text("‼️" + toDoItem.title)
+                            } else {
+                                Text(toDoItem.title)
+                            }
+                        }
+                        .onDelete(perform: deleteToDo)
+                }
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
         }
+        .background(Color("Cambridge"))
         if showNewTask {
             NewToDoView(showNewTask: $showNewTask, toDoItem: ToDoItem(title: "", isImportant: false))
         }
