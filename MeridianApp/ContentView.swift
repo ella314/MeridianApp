@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct HomeView: View {
+struct ContentView: View {
     var body: some View {
         VStack(spacing: 20) {
             Text("Home")
@@ -8,7 +8,7 @@ struct HomeView: View {
                 .fontWeight(.bold)
 
             RoundedRectangle(cornerRadius: 25)
-                .fill(Color(.systemRed).opacity(0.7))
+                .fill(Color("Light coral").opacity(0.7))
                 .frame(height: 100)
                 .overlay(
                     Text("quote")
@@ -17,22 +17,25 @@ struct HomeView: View {
                 )
 
             RoundedRectangle(cornerRadius: 25)
-                .fill(Color(.systemRed).opacity(0.7))
+                .fill(Color("Light coral").opacity(0.7))
                 .frame(height: 300)
                 .overlay(
-                    Text("Reminders")
-                        .font(.title)
-                        .foregroundColor(.black)
+                    VStack {
+                        Text("Reminders")
+                        TextField(" ", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                            .font(.title)
+                            .foregroundColor(.black)
+                    }
                 )
 
             Spacer()
         }
         .padding()
-        .background(Color(.lightGray))
+        .background(Color("Linen"))
     }
 }
 
 #Preview {
-    HomeView()
+    ContentView()
 }
 
