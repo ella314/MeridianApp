@@ -7,13 +7,15 @@
 
 //import SwiftUI
 //import SwiftData
+//
 //@main
-//struct ToDoListAppApp: App {
-//  var body: some Scene {
-//    WindowGroup {
-//      ContentView()
-//        .modelContainer(for: ToDoItem.self)
+//struct ToDoListApp: App {
+//    var body: some Scene {
+//        WindowGroup {
+//            ContentView()
+//                .modelContainer(for: ToDoItem.self)
+//        }
 //    }
-//  }
 //}
+
 

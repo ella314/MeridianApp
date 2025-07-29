@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CountdownView: View {
+struct TimerView: View {
     @State private var timeRemaining: Int = 0 // Total seconds (e.g., 5 minutes)
     @State private var timerRunning = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -90,5 +90,5 @@ struct CountdownView: View {
 }
 
 #Preview {
-    CountdownView()
+    TimerView()
 }
