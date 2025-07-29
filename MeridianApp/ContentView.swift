@@ -12,6 +12,7 @@ struct ContentView: View {
         VStack {
             Text("Ella is not sigma, but Dhriti is")
             Text("change")
+            Text("hi")
         }
         .padding()
     }
