@@ -32,7 +32,7 @@ struct NewToDoView: View {
             } label: {
                 Text("Save")
                     .padding(10)
-                    .background(Color(.green))
+                    .background(Color("Cambridge"))
                     .cornerRadius(15)
                     .foregroundStyle(Color.white)
             }
