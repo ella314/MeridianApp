@@ -29,7 +29,11 @@ struct Journal: View {
 
                 }//HStack
                 TextField("Journal here!", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/, axis: .vertical )
+<<<<<<< HEAD:Journal.swift
+                    .lineLimit(28...)
+=======
                     .lineLimit(29...)
+>>>>>>> main:MeridianApp/Journal.swift
                     .padding()
                         .background(Color.white)
                         .cornerRadius(10)
@@ -46,4 +50,3 @@ struct Journal: View {
 #Preview {
     Journal()
 }//preview
-
