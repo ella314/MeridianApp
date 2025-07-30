@@ -8,27 +8,16 @@ struct ContentView: View {
                     .fill(Color("Light coral").opacity(0.7))
                     .frame(height: 100)
                     .overlay(
-                        HStack{
-                            Button("✅") {
-                                //type here
+                        HStack(spacing: 20) {
+                            NavigationLink(destination: TodoViewMainView()) {
+                                Image(systemName: "checkmark.square")
+                                    .foregroundColor(.black)
+                                    .padding()
+                                    .background(Color.white)
+                                    .clipShape(Circle())
                             }
-                            Button("⏳") {
-                                //type here
-                            }
-                            Button("😀") {
-                                //type here
-                            }
-                            Button("📝") {
-                                //type here
-                            }
-                            Button(action: {
-                                // Your action here
-                            }) {
-                                Image("check") // This must be in your Assets.xcassets
-                                    .resizable()
-                                    .frame(width: 100, height: 100)
-                            }
-                        }
+                                   }
+                                   .padding()
                     )
                 
                 Text("Home")
@@ -51,13 +40,14 @@ struct ContentView: View {
                         Text("Reminders")
                             .font(.title)
                             .foregroundColor(.black)
+                        
                     )
                 
                 Spacer()
             }
             .padding()
             .background(Color("Linen"))
-        }
+        }//Navigation
     }
 }
 
