@@ -10,7 +10,7 @@ import SwiftUI
 struct Journal: View {
     var body: some View {
         ZStack{
-           Color ("Linen 1")
+           Color ("Linen")
                 .ignoresSafeArea()
             VStack {
                 HStack{
@@ -22,17 +22,19 @@ struct Journal: View {
                         Spacer()
                     
                     Button("+"){
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                       
                     }
                     .font(.largeTitle)
                     .padding()
 
                 }//HStack
                 TextField("Journal here!", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/, axis: .vertical )
-                    .lineLimit(30...)
+                    .lineLimit(29...)
                     .padding()
-                    .overlay(RoundedRectangle(cornerRadius:16).stroke(.black, lineWidth:1))
-                    .padding(.horizontal)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .shadow(radius: 2)
+                        .padding(.all)
               
                 
                     Spacer()
