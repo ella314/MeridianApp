@@ -11,14 +11,18 @@ struct TimerView: View {
     @State private var timeRemaining: Int = 0 // Total seconds (e.g., 5 minutes)
     @State private var timerRunning = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @StateObject private var audioManager = AudioManager()
     
     var body: some View {
         ZStack{
-            Color("Linen")
+            Image("Sunflower")
+                .resizable()
+                .scaledToFill()
                 .ignoresSafeArea()
             VStack(spacing: 20) {
                 Text("Timer")
                     .font(.system(size: 60))
+                    .foregroundStyle(Color("Brownish"))
                 Text(timeString(from: timeRemaining))
                     .font(.system(size: 48, weight: .bold, design: .monospaced))
                     .padding()
@@ -33,7 +37,7 @@ struct TimerView: View {
                     }
                     .font(.title2)
                     .padding(8)
-                    .background(Color("Cambridge"))
+                    .background(Color("Yellowy"))
                     .foregroundStyle(Color.white)
                     .cornerRadius(15)
                     .shadow(radius: 3)
@@ -44,7 +48,7 @@ struct TimerView: View {
                     }
                     .font(.title2)
                     .padding(8)
-                    .background(Color("Cambridge"))
+                    .background(Color("Yellowy"))
                     .foregroundStyle(Color.white)
                     .cornerRadius(15)
                     .shadow(radius: 3)
@@ -74,6 +78,25 @@ struct TimerView: View {
                     .padding()
                     .frame(width: 80, height: 80)
                     .background(Color("Cambridge"))
+                    .foregroundStyle(Color.white)
+                    .cornerRadius(15)
+                    .shadow(radius: 3)
+                }
+                HStack (spacing: 20) {
+                    Button("Play Music") {
+                        audioManager.playSound(named: "backgroundMusic")
+                    }
+                    .padding()
+                    .background(Color("Yellowy"))
+                    .foregroundStyle(Color.white)
+                    .cornerRadius(15)
+                    .shadow(radius: 3)
+
+                    Button("Stop Music") {
+                        audioManager.stopSound()
+                    }
+                    .padding()
+                    .background(Color("Yellowy"))
                     .foregroundStyle(Color.white)
                     .cornerRadius(15)
                     .shadow(radius: 3)
