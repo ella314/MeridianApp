@@ -1,67 +1,41 @@
 import SwiftUI
-
 struct ContentView: View {
-    var body: some View {
-        NavigationStack {
-            VStack(spacing: 20) {
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(Color("Light coral").opacity(0.7))
-                    .frame(height: 100)
-                    .overlay(
-                        HStack{
-                            Button("✅") {
-                                //type here
-                            }
-                            Button("⏳") {
-                                //type here
-                            }
-                            Button("😀") {
-                                //type here
-                            }
-                            Button("📝") {
-                                //type here
-                            }
-                            Button(action: {
-                                // Your action here
-                            }) {
-                                Image("check") // This must be in your Assets.xcassets
-                                    .resizable()
-                                    .frame(width: 100, height: 100)
-                            }
-                        }
-                    )
-                
-                Text("Home")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(Color("Light coral").opacity(0.7))
-                    .frame(height: 100)
-                    .overlay(
-                        Text("quote")
-                            .font(.title)
-                            .foregroundColor(.black)
-                    )
-                
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(Color("Light coral").opacity(0.7))
-                    .frame(height: 300)
-                    .overlay(
-                        Text("Reminders")
-                            .font(.title)
-                            .foregroundColor(.black)
-                    )
-                
-                Spacer()
-            }
-            .padding()
-            .background(Color("Linen"))
-        }
+  var body: some View {
+    NavigationStack {
+      ZStack {
+        Color("Linen")
+          .ignoresSafeArea()
+        VStack {
+          Text("Home")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+          ZStack {
+            RoundedRectangle(cornerRadius: 25)
+              .fill(Color("Cambridge").opacity(0.7))
+              .frame(height: 100)
+            TextField("Inspirational quote here!", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/, axis: .vertical )
+              .lineLimit(2...)
+              .padding()
+              .overlay(RoundedRectangle(cornerRadius:16).stroke(.black, lineWidth:1))
+              .padding(.horizontal)
+          }
+          ZStack {
+            RoundedRectangle(cornerRadius: 25)
+              .fill(Color("Cambridge").opacity(0.7))
+              .frame(height: 300)
+            Spacer()
+            TextField("Reminders here!", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/, axis: .vertical )
+              .lineLimit(10...)
+              .padding()
+              .overlay(RoundedRectangle(cornerRadius:16).stroke(.black, lineWidth:1))
+              .padding(.horizontal)
+          }
+          Spacer()
+        }.padding()
+      }
     }
+  }
 }
-
 #Preview {
-    ContentView()
+  ContentView()
 }
-
