@@ -29,7 +29,7 @@ struct Journal: View {
 
                 }//HStack
                 TextField("Journal here!", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/, axis: .vertical )
-                    .lineLimit(29...)
+                    .lineLimit(25...)
                     .padding()
                         .background(Color.white)
                         .cornerRadius(10)
