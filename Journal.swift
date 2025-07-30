@@ -29,7 +29,7 @@ struct Journal: View {
 
                 }//HStack
                 TextField("Journal here!", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/, axis: .vertical )
-                    .lineLimit(30...)
+                    .lineLimit(28...)
                     .padding()
                     .overlay(RoundedRectangle(cornerRadius:16).stroke(.black, lineWidth:1))
                     .padding(.horizontal)
