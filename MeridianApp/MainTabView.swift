@@ -13,15 +13,19 @@ struct MainTabView: View {
         .tabItem {
           Label("Home", systemImage: "house.fill")
         }
+        TodoViewMainView()
+          .tabItem {
+            Label("To Do", systemImage: "checkmark.square")
+          }
       TimerView()
         .tabItem {
           Label("Timer", systemImage: "hourglass")
         }
-      //MoodTrackerView()
-        //.tabItem {
-          //Label("Mood", systemImage: "face.smiling")
-        //}
-      Journal()
+      MoodTracker()
+        .tabItem {
+          Label("Mood", systemImage: "face.smiling")
+        }
+      JournalPasswordView()
         .tabItem {
           Label("Journal", systemImage: "note.text")
         }
