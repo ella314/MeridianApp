@@ -17,6 +17,9 @@ import SwiftData
 
 struct TodoViewMainView: View {
     @State private var showNewTask = false
+    @State private var buttonCheck = "🟩"
+    @State private var printedToDo = ""
+    @State private var isStriked = false
     @Query var toDos: [ToDoItem]
     @Environment(\.modelContext) var modelContext
     
@@ -26,8 +29,8 @@ struct TodoViewMainView: View {
                 HStack{
                     Text("To Do List")
                         .font(.system(size: 40))
-                             .fontWeight(.black)
-                             .foregroundStyle(Color.white)
+                        .fontWeight(.black)
+                        .foregroundStyle(Color.white)
                     Spacer()
                     Button {
                         withAnimation {
@@ -39,35 +42,51 @@ struct TodoViewMainView: View {
                             .fontWeight(.bold)
                             .foregroundStyle(Color.white)
                     }
-                }
+                } //HStack
                 .padding()
                 Spacer()
                 List {
-                        ForEach (toDos) { toDoItem in
-                            if toDoItem.isImportant {
-                                Text("‼️" + toDoItem.title)
-                            } else {
+                    ForEach (toDos) { toDoItem in
+                        if toDoItem.isImportant {
+                            HStack {
+                                Button(buttonCheck) {
+                                    print("Hello World")
+                                    buttonCheck = "✅"
+                                    isStriked.toggle()                                }
+                                Text("❗️" + toDoItem.title)
+                                    .strikethrough(isStriked, color: .black)
+                            }
+                        } else {
+                            HStack {
+                                Button(buttonCheck) {
+                                    print("Hello World")
+                                    buttonCheck = "✅"
+                                    isStriked.toggle()
+                                }
                                 Text(toDoItem.title)
+                                    .strikethrough(isStriked, color: .black)
                             }
                         }
-                        .onDelete(perform: deleteToDo)
+                    }
+                    .onDelete(perform: deleteToDo)
                 }
                 .listStyle(.plain)
+            } //VStack
+            .background(Color("Cambridge"))
+            if showNewTask {
+                NewToDoView(showNewTask: $showNewTask, toDoItem: ToDoItem(title: "", isImportant: false))
             }
-        }
-        .background(Color("Cambridge"))
-        if showNewTask {
-            NewToDoView(showNewTask: $showNewTask, toDoItem: ToDoItem(title: "", isImportant: false))
-        }
+        } //ZStack
     }
-    func deleteToDo(at offsets: IndexSet) {
-        for offset in offsets {
-            let toDoItem = toDos[offset]
-            modelContext.delete(toDoItem)
-        }
+        func deleteToDo(at offsets: IndexSet) {
+            for offset in offsets {
+                let toDoItem = toDos[offset]
+                modelContext.delete(toDoItem)
+            }
+        } //func
+        
     }
 
-}
 
 #Preview {
     TodoViewMainView()
