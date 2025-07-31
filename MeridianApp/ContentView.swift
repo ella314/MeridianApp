@@ -6,25 +6,27 @@
       var body: some View {
         NavigationStack {
           ZStack {
-            Color("Linen")
-              .ignoresSafeArea()
+              Image("Sunflower")
+                  .resizable()
+                  .scaledToFill()
+                  .ignoresSafeArea()
             VStack {
               Text("Home")
                 .font(.largeTitle)
                 .fontWeight(.bold)
               ZStack {
                 RoundedRectangle(cornerRadius: 25)
-                  .fill(Color("Cambridge").opacity(0.7))
+                  .fill(Color("Cambridge").opacity(0.8))
                   .frame(height: 100)
                   TextField("Inspirational quote here!", text: $quoteText, axis: .vertical )
                   .lineLimit(2...)
                   .padding()
                   .overlay(RoundedRectangle(cornerRadius:16).stroke(.black, lineWidth:1))
                   .padding(.horizontal)
-              }
+              }.padding()
               ZStack {
                 RoundedRectangle(cornerRadius: 25)
-                  .fill(Color("Cambridge").opacity(0.7))
+                      .fill(Color("Cambridge").opacity(0.8))
                   .frame(height: 300)
                 Spacer()
                 TextField("Reminders here!", text: $reminderText, axis: .vertical )
@@ -32,8 +34,9 @@
                   .padding()
                   .overlay(RoundedRectangle(cornerRadius:16).stroke(.black, lineWidth:1))
                   .padding(.horizontal)
-              }
-              Spacer()
+              }.padding()
+
+    
             }.padding()
           }
         }
