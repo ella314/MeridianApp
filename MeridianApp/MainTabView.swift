@@ -22,7 +22,7 @@
             .tabItem {
               Label("Home", systemImage: "house.fill")
             }
-            TodoViewMainView()  
+            TodoViewMainView().modelContainer(for: ToDoItem.self, inMemory: true)
               .tabItem {
                 Label("To Do", systemImage: "checkmark.square")
               }
