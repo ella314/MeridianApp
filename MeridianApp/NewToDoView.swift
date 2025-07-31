@@ -31,6 +31,7 @@ struct NewToDoView: View {
                 }
                 Button {
                     addToDo()
+                    self.showNewTask = false
                 } label: {
                     Text("Save")
                         .padding(10)

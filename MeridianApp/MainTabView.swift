@@ -13,7 +13,7 @@ struct MainTabView: View {
         .tabItem {
           Label("Home", systemImage: "house.fill")
         }
-        TodoViewMainView()
+    TodoViewMainView()
           .tabItem {
             Label("To Do", systemImage: "checkmark.square")
           }
@@ -30,6 +30,7 @@ struct MainTabView: View {
           Label("Journal", systemImage: "note.text")
         }
     }
+    .navigationBarBackButtonHidden(true)
   }
 }
 #Preview {
