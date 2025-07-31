@@ -12,7 +12,7 @@ struct JournalPasswordView: View {
     @State private var isAuthenticated = false
     @State private var showError = false
     
-    private let correctPassword = "hi"
+    private let correctPassword = "KodeWithKlossy@123"
     
     var body: some View {
         NavigationStack {
