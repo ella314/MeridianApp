@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Journal: View {
+    @State private var journalText: String = ""
     var body: some View {
         ZStack{
            Color ("Linen")
@@ -28,7 +29,7 @@ struct Journal: View {
                     .padding()
 
                 }//HStack
-                TextField("Journal here!", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/, axis: .vertical )
+                TextField("Journal here!", text: $journalText, axis: .vertical )
                     .lineLimit(25...)
                     .padding()
                         .background(Color.white)

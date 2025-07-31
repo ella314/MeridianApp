@@ -12,7 +12,7 @@ import SwiftData
 struct MeridianAppApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+           MainTabView()
                 .modelContainer(for: ToDoItem.self)
         }
     }
