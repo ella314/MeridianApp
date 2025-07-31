@@ -43,7 +43,7 @@ struct NotEmptyMood: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text ("Click Through Mood Tracker")
+                    Text ("Mood Tracker (Click Through) ")
                     
                     
                     Button(" monday                         ") {
@@ -150,8 +150,7 @@ struct NotEmptyMood: View {
                     .frame(width: 500.0, height: 100.0) // Sets a fixed width
                     .buttonStyle(.borderedProminent)
                     .tint(colors7[currentColorIndex7])
-                    Text(" just click until you find ")
-                    Text("a color that fits your mood for the day.")
+            Spacer()
                     
                     //     Button("Click Me") {
                     // Change the color when the button is tapped
