@@ -29,6 +29,7 @@ struct JournalPasswordView: View {
                     Button("Submit") {
                         if password == correctPassword {
                             isAuthenticated = true
+                            password = ""
                         } else {
                             showError = true
                             password = ""

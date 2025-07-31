@@ -90,13 +90,24 @@ struct MoodTracker: View {
                         .foregroundStyle(Color.black)
 
                     }//HStack 2
-                Button("Reset") {
-                    changeColor(to: Color.gray.opacity(0.2))
-                }
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(15)
-                .foregroundStyle(Color.black)
+                HStack{
+                    Button("Reset") {
+                        changeColor(to: Color.gray.opacity(0.2))
+                    }
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(15)
+                    .foregroundStyle(Color.black)
+                    
+                    Button("Reset All") {
+                        dayColors = Array(repeating: Color.gray.opacity(0.2), count: 7)
+                                            selectedIndex = nil
+                    }
+                    .padding()
+                    .background(Color.black)
+                    .cornerRadius(15)
+                    .foregroundStyle(.white)
+                }//HStack3
             }//VStack
             .padding()
         }//ZStack
