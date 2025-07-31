@@ -39,11 +39,11 @@ struct NotEmptyMood: View {
             
             
             ZStack {
-                Color.linen.opacity(0.3)
+                Color.linen.opacity(1)
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text ("Mood Tracker (Click Through) ")
+                    Text ("Mood Tracker")
                     
                     
                     Button(" monday                         ") {

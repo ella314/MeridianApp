@@ -1,48 +1,43 @@
-//
-//  Journal.swift
-//  MeridianApp
-//
-//  Created by Scholar on 7/29/25.
-//
-
 import SwiftUI
 
 struct Journal: View {
-    @State private var journalText: String = ""
+    @State private var journalText: String = UserDefaults.standard.string(forKey: "journalEntry") ?? ""
+
     var body: some View {
-        ZStack{
-           Color ("Linen")
+        ZStack {
+            Color("Linen")
                 .ignoresSafeArea()
             VStack {
-                HStack{
+                HStack {
                     Text("                  Journal")
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .foregroundColor(Color.black)
                         .padding(.all, 5.0)
-                        Spacer()
-                    
-                    Button("+"){
-                       
-                    }
-                    .font(.largeTitle)
-                    .padding()
+                    Spacer()
+                    Text("✏️") // optional emoji instead of +
+                        .font(.largeTitle)
+                        .padding()
+                }
 
-                }//HStack
-                TextField("Journal here!", text: $journalText, axis: .vertical )
+                TextField("Journal here!", text: $journalText, axis: .vertical)
                     .lineLimit(25...)
                     .padding()
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .shadow(radius: 2)
-                        .padding(.all)
-              
-                
-                    Spacer()
-            }//VStack
-        }//ZStack
-    }//body
-}//struct
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 2)
+                    .padding(.all)
+                    .onChange(of: journalText) {
+                        UserDefaults.standard.set(journalText, forKey: "journalEntry")
+
+                    }
+
+                Spacer()
+            }
+        }
+    }
+}
+
 
 #Preview {
     Journal()
